@@ -8,7 +8,7 @@
 
         <div class="form-group">
             <label for="title" class="fs-3 fw-semibold">Title:
-                <input class="form-control" type="text" name="title" id="" placeholder="Title">
+                <input class="form-control" type="text" name="title" id="" size="100" placeholder="Title">
             </label> 
         </div>
         <div class="form-group">

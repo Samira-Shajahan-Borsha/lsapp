@@ -49,7 +49,7 @@ Route::get('/services', [PageController::class, 'services']);
 
 
 //POSTCONTROLLER
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 
@@ -58,6 +58,10 @@ Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::post('/posts/store', [PostController::class, 'store'])->name('post.store');
 
 Route::get('/post/{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+
+Route::post('/posts/{id}/update', [PostController::class, 'update'])->name('post.update');
+
+Route::get('/posts/{id}/delete', [PostController::class, 'delete'])->name('post.delete');
 
 
 

@@ -8,5 +8,7 @@
     </div>
     <hr>
     <small>Written on: {{ $post->created_at }}</small><hr>
-    <a href="/posts/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
+    <a href="/post/{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
+
+    <a href="/posts/{{ $post->id }}/delete" class="btn btn-danger">Delete</a>
 @endsection

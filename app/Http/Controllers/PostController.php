@@ -16,7 +16,7 @@ class PostController extends Controller
             // $posts = Post::orderBy('title','desc')->take(2)->get();
             // $posts = Post::orderBy('title','desc')->paginate(2);
 
-            $posts = Post::orderBy('id','asc')->get();
+            $posts = Post::orderBy('id','desc')->get();
             return view('posts.index')->with('posts',$posts);
         }
         public function create()
@@ -54,14 +54,26 @@ class PostController extends Controller
             $post =  Post::find($id);
             return view('posts.edit')->with('post',$post);
         }
-        public function update(Request $request)
+        public function update(Request $request, $id)
         {
-            
+            $this->validate($request,[
+                'title' => 'required',
+                'body' => 'required'
+            ]);
+            //Update POST
+            $post = Post::find($id);
+            $post->title = $request->title;
+            $post->body = $request->body;
+            $post->save();
+
+            return redirect('/posts')->with('success','Post Updated');
 
         }
-        public function destroy($id)
+        public function delete($id)
         {
-
+            $post = Post::find($id);
+            $post->delete();
+            return redirect("/posts")->with('success','Post Removed');
         }
         
 
